@@ -1,17 +1,18 @@
-%define revision 856598
-
 Name:          telepathy-qt4
-Version:       0.2.2
+Version:       0.3.9
 Release:       %mkrel 1
-Epoch:         1
 Summary:       Base classes for use in connection managers, and proxy classes
 License:       GPL
 Group:         Networking/Instant messaging
 Url:           http://websvn.kde.org/trunk/kdesupport/telepathy-qt/
-Source:        %name-%version.tar.gz
+Source:        http://telepathy.freedesktop.org/releases/telepathy-qt4/%name-%version.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-buildroot
-BuildRequires: cmake
 BuildRequires: qt4-devel
+BuildRequires: libtelepathy-farsight-devel >= 0.0.4
+BuildRequires: libtelepathy-glib-devel >= 0.11.11
+BuildRequires: libgstreamer-plugins-base-devel
+BuildRequires: gstreamer0.10-devel
+BuildRequires: python
 Provides:      TelepathyQt = %{version}
 Obsoletes:     telepathy-qt
 Provides:      telepathy-qt = %version-%release
@@ -20,7 +21,6 @@ Provides:      telepathy-qt = %version-%release
 Qt4 libraries for use in Telepathy clients and connection managers
 
 #--------------------------------------------------------------------
-
 %define libtelepathy_qt4_farsight_major 0
 %define libtelepathy_qt4_farsight %mklibname telepathy-qt4-farsight %{libtelepathy_qt4_farsight_major}
 
@@ -38,7 +38,7 @@ Core Decibel library.
 #--------------------------------------------------------------------
 
 %define libtelepathy_qt4_major 0
-%define libtelepathy_qt4 %mklibname telepathy-qt4 %{libtelepathy_qt4_major}
+%define libtelepathy_qt4 %mklibname telepathy-qt4_ %{libtelepathy_qt4_major}
 
 %package -n %libtelepathy_qt4
 Summary: Core Decibel library
@@ -54,10 +54,11 @@ Core Decibel library.
 #--------------------------------------------------------------------
 
 %package devel
-Requires: %libtelepathy_qt4_farsight = %{epoch}:%{version}
 Summary: %{name} development files
 Group: Development/Other
 Provides: libtelepathy-qt-devel = %{version}
+Requires: %libtelepathy_qt4 = %{version}
+Requires: %libtelepathy_qt4_farsight = %{version}
 Obsoletes: %{_lib}telepathy-qt-devel
 Obsoletes: telepathy-qt-devel
 
@@ -69,8 +70,7 @@ Telepathy-qt development files.
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/libtelepathy-qt4-farsight.*a
-%{_libdir}/libtelepathy-qt4.*a
+%{_libdir}/*.la
 
 #--------------------------------------------------------------------
 
@@ -78,8 +78,7 @@ Telepathy-qt development files.
 %setup -q  -n %name-%version
 
 %build
-%configure2_5x
-
+%configure2_5x --disable-static
 %make
 
 %install
