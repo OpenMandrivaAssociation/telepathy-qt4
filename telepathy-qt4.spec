@@ -4,7 +4,7 @@ Release:       %mkrel 1
 Summary:       Base classes for use in connection managers, and proxy classes
 License:       GPL
 Group:         Networking/Instant messaging
-Url:           http://websvn.kde.org/trunk/kdesupport/telepathy-qt/
+Url:           http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source:        http://telepathy.freedesktop.org/releases/telepathy-qt4/%name-%version.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-buildroot
 BuildRequires: qt4-devel
@@ -13,9 +13,6 @@ BuildRequires: libtelepathy-glib-devel >= 0.11.11
 BuildRequires: libgstreamer-plugins-base-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: python
-Provides:      TelepathyQt = %{version}
-Obsoletes:     telepathy-qt
-Provides:      telepathy-qt = %version-%release
 
 %description
 Qt4 libraries for use in Telepathy clients and connection managers
@@ -59,8 +56,6 @@ Group: Development/Other
 Provides: libtelepathy-qt-devel = %{version}
 Requires: %libtelepathy_qt4 = %{version}
 Requires: %libtelepathy_qt4_farsight = %{version}
-Obsoletes: %{_lib}telepathy-qt-devel
-Obsoletes: telepathy-qt-devel
 
 %description devel
 Telepathy-qt development files.
