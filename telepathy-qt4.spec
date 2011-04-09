@@ -1,24 +1,26 @@
 Name:          telepathy-qt4
-Version:       0.3.9
+Version:       0.5.14
 Release:       %mkrel 1
 Summary:       Base classes for use in connection managers, and proxy classes
 License:       GPL
 Group:         Networking/Instant messaging
 Url:           http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source:        http://telepathy.freedesktop.org/releases/telepathy-qt4/%name-%version.tar.gz
+Patch0:        telepathy-qt4-0.5.14-link.patch
 BuildRoot:     %{_tmppath}/%{name}-buildroot
 BuildRequires: qt4-devel
 BuildRequires: libtelepathy-farsight-devel >= 0.0.4
-BuildRequires: libtelepathy-glib-devel >= 0.11.11
+BuildRequires: libtelepathy-glib-devel >= 0.13.10
 BuildRequires: libgstreamer-plugins-base-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: python
+BuildRequires: cmake
 
 %description
 Qt4 libraries for use in Telepathy clients and connection managers
 
 #--------------------------------------------------------------------
-%define libtelepathy_qt4_farsight_major 0
+%define libtelepathy_qt4_farsight_major 1
 %define libtelepathy_qt4_farsight %mklibname telepathy-qt4-farsight %{libtelepathy_qt4_farsight_major}
 
 %package -n %libtelepathy_qt4_farsight
@@ -34,7 +36,7 @@ Core Decibel library.
 
 #--------------------------------------------------------------------
 
-%define libtelepathy_qt4_major 0
+%define libtelepathy_qt4_major 1
 %define libtelepathy_qt4 %mklibname telepathy-qt4_ %{libtelepathy_qt4_major}
 
 %package -n %libtelepathy_qt4
@@ -65,21 +67,21 @@ Telepathy-qt development files.
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/*.la
 
 #--------------------------------------------------------------------
 
 %prep
-%setup -q  -n %name-%version
+%setup -qn %name-%version
+%patch0 -p0
 
 %build
-%configure2_5x --disable-static
+%cmake
 %make
 
 %install
 rm -fr %buildroot
 
-%makeinstall_std
+%makeinstall_std -C build
 
 %clean
 rm -rf %buildroot
