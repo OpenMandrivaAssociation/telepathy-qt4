@@ -1,5 +1,5 @@
 Name:          telepathy-qt4
-Version:       0.5.14
+Version:       0.5.15
 Release:       %mkrel 1
 Summary:       Base classes for use in connection managers, and proxy classes
 License:       GPL
