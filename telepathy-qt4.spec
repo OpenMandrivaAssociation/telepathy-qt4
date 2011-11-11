@@ -1,16 +1,18 @@
+%define _disable_ld_no_undefined 1
+
 Name:          telepathy-qt4
-Version:       0.5.16
-Release:       %mkrel 1
+Version:       0.8.0
+Release:       1
 Summary:       Base classes for use in connection managers, and proxy classes
 License:       GPL
 Group:         Networking/Instant messaging
 Url:           http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
-Source:        http://telepathy.freedesktop.org/releases/telepathy-qt4/%name-%version.tar.gz
-Patch0:        telepathy-qt4-0.5.14-link.patch
-BuildRoot:     %{_tmppath}/%{name}-buildroot
+Source0:       http://telepathy.freedesktop.org/releases/telepathy-qt4/%name-%version.tar.gz
+Patch0:        telepathy-qt4-0.8.0-link.patch
 BuildRequires: qt4-devel
+BuildRequires: qt4-assistant
 BuildRequires: libtelepathy-farsight-devel >= 0.0.4
-BuildRequires: libtelepathy-glib-devel >= 0.13.10
+BuildRequires: libtelepathy-glib-devel >= 0.15.1
 BuildRequires: libgstreamer-plugins-base-devel
 BuildRequires: gstreamer0.10-devel
 BuildRequires: python
@@ -63,15 +65,13 @@ Requires: %libtelepathy_qt4_farsight = %{version}
 Telepathy-qt development files.
 
 %files devel
-%defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
 
 #--------------------------------------------------------------------
-
 %prep
-%setup -qn %name-%version
+%setup -q
 %patch0 -p0 -b .link
 
 %build
@@ -80,8 +80,4 @@ Telepathy-qt development files.
 
 %install
 rm -fr %buildroot
-
 %makeinstall_std -C build
-
-%clean
-rm -rf %buildroot
