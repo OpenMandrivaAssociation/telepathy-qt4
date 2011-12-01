@@ -22,6 +22,7 @@ BuildRequires: cmake
 Qt4 libraries for use in Telepathy clients and connection managers
 
 #--------------------------------------------------------------------
+
 %define libtelepathy_qt4_farsight_major 1
 %define libtelepathy_qt4_farsight %mklibname telepathy-qt4-farsight %{libtelepathy_qt4_farsight_major}
 
@@ -33,7 +34,6 @@ Group: System/Libraries
 Core Decibel library.
 
 %files -n %libtelepathy_qt4_farsight
-%defattr(-,root,root)
 %{_libdir}/libtelepathy-qt4-farsight.so.%{libtelepathy_qt4_farsight_major}*
 
 #--------------------------------------------------------------------
@@ -49,7 +49,6 @@ Group: System/Libraries
 Core Decibel library.
 
 %files -n %libtelepathy_qt4
-%defattr(-,root,root)
 %{_libdir}/libtelepathy-qt4.so.%{libtelepathy_qt4_major}*
 
 #--------------------------------------------------------------------
@@ -79,5 +78,4 @@ Telepathy-qt development files.
 %make
 
 %install
-rm -fr %buildroot
 %makeinstall_std -C build
