@@ -85,3 +85,41 @@ Telepathy-qt development files.
 
 %install
 %makeinstall_std -C build
+
+
+%changelog
+* Mon Jul 16 2012 Andrey Bondrov <abondrov@mandriva.org> 0.9.3-1
++ Revision: 809887
+- New version 0.9.3, update library names and major versions, update files
+
+* Thu Dec 01 2011 Zé <ze@mandriva.org> 0.8.0-1
++ Revision: 735896
+- version 0.8.0
+- rediff link patch
+- drop mkrell
+- clean BR, defattr and clean section
+- set to allow undefined references
+
+* Sat May 07 2011 Funda Wang <fwang@mandriva.org> 0.5.16-1
++ Revision: 672288
+- more linkage fix
+- update to new version 0.5.16
+
+* Wed Apr 27 2011 Funda Wang <fwang@mandriva.org> 0.5.15-1
++ Revision: 659525
+- update to new version 0.5.15
+
+* Sat Apr 09 2011 Funda Wang <fwang@mandriva.org> 0.5.14-1
++ Revision: 652082
+- New version 0.5.14
+
+* Thu Sep 16 2010 Funda Wang <fwang@mandriva.org> 0.3.9-1mdv2011.0
++ Revision: 578956
+- update url
+- drop some obsoletes, need review at a later time
+- New version 0.3.9
+
+  + Nicolas Lécureuil <nlecureuil@mandriva.com>
+    - import telepathy-qt4
+
+
