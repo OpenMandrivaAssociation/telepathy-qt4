@@ -4,14 +4,14 @@
 
 Name:		telepathy-qt4
 Version:	0.9.3
-Release:	2
+Release:	3
 Summary:	Base classes for use in connection managers, and proxy classes
 License:	GPL
 Group:		Networking/Instant messaging
 Url:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source0:	http://telepathy.freedesktop.org/releases/%{oname}/%{oname}-%{version}.tar.gz
 Patch0:		telepathy-qt-0.9.3-fix-link.patch
-BuildRequires:	pkgconfig(farstream-0.1)
+BuildRequires:	pkgconfig(farstream-0.2)
 BuildRequires:	pkgconfig(telepathy-farstream)
 BuildRequires:	pkgconfig(telepathy-glib)
 BuildRequires:	pkgconfig(gstreamer-interfaces-0.10)
