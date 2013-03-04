@@ -11,6 +11,7 @@ Group:		Networking/Instant messaging
 Url:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source0:	http://telepathy.freedesktop.org/releases/%{oname}/%{oname}-%{version}.tar.gz
 Patch0:		telepathy-qt-0.9.3-fix-link.patch
+Patch1:		telepathy-qt-0.9.3-farstream0.2.patch
 BuildRequires:	pkgconfig(farstream-0.2)
 BuildRequires:	pkgconfig(telepathy-farstream)
 BuildRequires:	pkgconfig(telepathy-glib)
@@ -79,6 +80,7 @@ Telepathy-qt development files.
 %prep
 %setup -q -n %{oname}-%{version}
 %patch0 -p1 -b .link
+%patch1 -p0 -b .farstream0.2
 
 %build
 %cmake

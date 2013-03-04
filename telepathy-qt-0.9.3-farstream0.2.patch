@@ -1,0 +1,23 @@
+--- cmake/modules/FindFarstream.cmake.orig	2013-03-03 23:58:52.853259295 +0000
++++ cmake/modules/FindFarstream.cmake	2013-03-03 23:59:31.738260869 +0000
+@@ -23,9 +23,9 @@
+     # in the find_path() and find_library() calls
+     find_package(PkgConfig)
+     if (FARSTREAM_MIN_VERSION)
+-        PKG_CHECK_MODULES(PC_FARSTREAM farstream-0.1>=${FARSTREAM_MIN_VERSION})
++        PKG_CHECK_MODULES(PC_FARSTREAM farstream-0.2>=${FARSTREAM_MIN_VERSION})
+     else (FARSTREAM_MIN_VERSION)
+-        PKG_CHECK_MODULES(PC_FARSTREAM farstream-0.1)
++        PKG_CHECK_MODULES(PC_FARSTREAM farstream-0.2)
+     endif (FARSTREAM_MIN_VERSION)
+     set(FARSTREAM_DEFINITIONS ${PC_FARSTREAM_CFLAGS_OTHER})
+ endif (NOT WIN32)
+@@ -37,7 +37,7 @@
+    PATH_SUFFIXES farstream-0.1
+    )
+ 
+-find_library(FARSTREAM_LIBRARIES NAMES farstream-0.1
++find_library(FARSTREAM_LIBRARIES NAMES farstream-0.2
+    PATHS
+    ${PC_FARSTREAM_LIBDIR}
+    ${PC_FARSTREAM_LIBRARY_DIRS}
