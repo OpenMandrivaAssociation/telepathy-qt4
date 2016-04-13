@@ -3,17 +3,21 @@
 %define oname telepathy-qt
 
 Name:		telepathy-qt4
-Version:	0.9.5
-Release:	5
+Version:	0.9.6.1
+Release:	1
 Summary:	Base classes for use in connection managers, and proxy classes
 License:	GPL
 Group:		Networking/Instant messaging
 Url:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source0:	http://telepathy.freedesktop.org/releases/%{oname}/%{oname}-%{version}.tar.gz
+Patch0:		telepathy-qt-0.9.4-fix-link.patch
+Patch1:		0.9.6.1-default-source.patch
+Patch2:		0.9.6.1-yes-release.patch
+Patch3:		telepathy-qt-0.9.6.1-gstreamer-1.5.patch
 BuildRequires:	pkgconfig(farstream-0.2)
 BuildRequires:	pkgconfig(telepathy-farstream)
 BuildRequires:	pkgconfig(telepathy-glib)
-BuildRequires:	pkgconfig(gstreamer-interfaces-0.10)
+BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	python
 BuildRequires:	python-dbus
 BuildRequires:	cmake
