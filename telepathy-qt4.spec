@@ -83,7 +83,7 @@ Telepathy-qt development files.
 #--------------------------------------------------------------------
 %prep
 %setup -q -n %{oname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake -DPYTHON_EXECUTABLE=%__python2
