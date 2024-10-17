@@ -8,7 +8,7 @@ Release:	1
 Summary:	Base classes for use in connection managers, and proxy classes
 License:	GPL
 Group:		Networking/Instant messaging
-Url:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
+Url:		https://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 Source0:	http://telepathy.freedesktop.org/releases/%{oname}/%{oname}-%{version}.tar.gz
 Patch0:		telepathy-qt-0.9.4-fix-link.patch
 Patch1:		0.9.6.1-default-source.patch
